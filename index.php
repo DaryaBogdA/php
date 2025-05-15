@@ -4,7 +4,7 @@
 	$string = 'asdf';
     $float = 6.5;
     $bool = true;
-    echo integer . " " . $string . " " . $float . " " . $bool
+    echo $integer . " " . $string . " " . $float . " " . $bool;
 //2
     $int = 555;
     $str = "ZZZ";
@@ -76,6 +76,9 @@
     echo generate_string(8) . "<br>";
 //8
     function decide_equation(float $a, float $b, float $c) {
+        if($a == 0)
+            return
+
         $D = $b * $b - 4 * $a * $c;
 
         if ($D > 0) {
