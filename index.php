@@ -1,10 +1,10 @@
 <?php
 // 1
-// 	$int = 5;
+	$integer = 5;
 	$string = 'asdf';
     $float = 6.5;
     $bool = true;
-//     echo $int . " " . $string . " " . $float . " " . $bool
+    echo integer . " " . $string . " " . $float . " " . $bool
 //2
     $int = 555;
     $str = "ZZZ";
@@ -12,10 +12,10 @@
     echo $int + $str . '<br>';
     echo $int . $str . '<br>';
 //3
-//     $first_number = 12;
-//     $second_number = 017;
-//     $third_number = 0xB;
-    $result = $first_number + $second_number + $third_number;
+    $first_number_3 = 12;
+    $second_number_3 = 017;
+    $third_number_3 = 0xB;
+    $result = $first_number_3 + $second_number_3 + $third_number_3;
     echo $result . '<br>';
 // 4
     $text = '235oiuyo8738dfosa4o897';
