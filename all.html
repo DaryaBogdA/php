@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Добавление новости</h1>
+
+  <input type="text" id="title" placeholder="Заголовок статьи"><br>
+  <input type="radio" id="radio" name="type" value="Статья" checked="checked"> Статья
+  <input type="radio" id="radio_2" name="type" value="Пост"> Пост<br>
+  <textarea type="text" id="anons"placeholder="Анонс новости"></textarea>
+  <div id="error"></div>
+    <button id="send">Добавить статью</button>
+    <div id="news"></div>
+  <script>
+    $('#send').click (function () {
+		let title = $("#title").val ()
+        let type = $('input[type=radio]:checked').val ()
+        let anons = $("#anons").val ()
+		if (title === "") {
+			$("#error").text ("Введите заголовок")
+			return false;
+		}
+		else if (anons === "") {
+			$("#error").text ("Введите анонс")
+			return false;
+		}
+
+		$.ajax({
+			url: 'all.php',
+			type: 'POST',
+			cache: false,
+			data: {'title':title, 'type':type, 'anons':anons},
+			dataType: 'html',
+			beforeSend: function () {
+				$('#mess').html ('')
+			},
+			success: function(data) {
+				$('#send').text ("Добавлено")
+				$('#news').append (data)
+
+              $("#title").val("")
+              $("#anons").val("")
+              $("#error").text("")
+			}
+		});
+    });
+  </script>
+</body>
+</html>
