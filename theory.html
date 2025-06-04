@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+
+<input type="text" id="name" placeholder="Введите имя">
+<input type="button" id="done" value="Готово">
+<p id="load" style="cursor: pointer">Загрузить данные</p>
+<div id="information"></div>
+
+<script>
+    function funcBefore(){
+        $("#information").text("Ожидание данных");
+    }
+    function funcSuccess(data){
+        $("#information").text(data);
+    }
+
+    $(document).ready(function (){
+        $("#load").on("click", function () {
+            $.ajax({
+                url: "content.php",
+                type: "POST",
+                data: {name: "Admin", age: 20},
+                dataType: "html",
+                beforeSend: funcBefore,
+                success: funcSuccess
+            });
+        });
+
+        $("#done").on("click", function () {
+            $.ajax({
+                url: "check.php",
+                type: "POST",
+                data: {name: $('#name').val(), age: 18},
+                dataType: "html",
+                beforeSend: function (){
+                    $("#information").text("Ожидание данных");
+                },
+                success: function (data){
+                    if (data === "Fail") {
+                        alert("ЗАНЯТО")
+                    }else{
+                        $("#information").text(data);
+                    }
+                }
+            });
+        });
+    });
+
+
+
+</script>
+</body>
+
+</html>
+
+
+
+<!--https://test//theory.html-->

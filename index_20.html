@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$a = $_POST["a"];
+$b = $_POST["b"];
+$c = $_POST["c"];
+?>
+<form action="index_20_3.php" method="post">
+    <input name="a" type="text" placeholder="Введите a"><br>
+    <?php
+
+        if (empty($a) || empty($b) || empty($c)) {
+            echo '<div class="show">Заполните значения</div>';
+        }
+    ?>
+    <input name="b" type="text" placeholder="Введите b"><br>
+    <input name="c" type="text" placeholder="Введите c"><br>
+    <input type="submit" value="Рассчитать">
+</form>
+
+<div id="error" class="nowpass">Ошибка: Поля не должны быть пустыми</div>
+
+</body>
+</html>

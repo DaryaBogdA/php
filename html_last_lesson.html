@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" id="name" placeholder="Имя">
+<input type="button" id="show" value="Отобразить">
+<div id="div"></div>
+
+<script>
+  function funcBefore(){
+    $("#div").text("Ожидание данных");
+  }
+  function funcSuccess(data){
+    $("#div").text(data);
+  }
+
+  $(document).ready(function (){
+    $("#show").on("click", function () {
+      $.ajax({
+        url: "last_lesson.php",
+        type: "POST",
+        data: {name: $("#name").val()},
+        dataType: "html",
+        beforeSend: funcBefore,
+        success: funcSuccess
+      });
+    });
+
+  });
+
+
+
+</script>
+</body>
+</html>
