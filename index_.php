@@ -5,7 +5,6 @@
     if (!$conn) {
         die("Ошибка подключения: " . mysqli_connect_error());
     }
-
     function get_news($conn, $n) {
         $str = "SELECT `date`, title, text FROM news ORDER BY `date` DESC LIMIT $n";
         $result = mysqli_query($conn, $str);
