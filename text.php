@@ -8,8 +8,8 @@ for($i= 0;$i<count($arr_text);$i++){
 }
 $file = fopen('new_text.txt', 'w');
 
-fwrite($file, $mess);
-
+//fwrite($file, $mess);
+file_put_contents('new_text.txt', $mess);
 if(file_exists('new_text.txt')){
-    echo 'Готовj';
+    echo 'Готов';
 }

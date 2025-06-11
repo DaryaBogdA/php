@@ -22,6 +22,15 @@ foreach ($rows as $row) {
     echo "</tr>";
 }
 echo "</table>";
-
+//[
+//    {
+//        "name": "C3",
+//        "type": true
+//    },
+//    {
+//        "name": "C6",
+//        "type": true
+//    }
+//]
 $conn->close();
 
