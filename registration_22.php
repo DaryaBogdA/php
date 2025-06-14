@@ -17,7 +17,7 @@
             echo json_encode(["status" => "error", "message" => "Заполните пожалуйста все поля"]);
             exit;
         }
-        if(strlen($name) < 3 || strlen($lastname) < 3){
+        if(strlen($name) < 3 || strlen($lastname) < 3 || strlen($name) > 33 || strlen($lastname) > 53){
             echo json_encode(["status" => "error", "message" => "в фамилии и имени должно быть больше символов"]);
             exit;
         }
@@ -29,5 +29,4 @@
         $stmt->execute();
 
         echo json_encode(["status" => "success", "message" => "Регистрация успешна"]);
-        exit;
     }
