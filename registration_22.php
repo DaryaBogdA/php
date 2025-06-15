@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli('MySQL-8.2', 'root', '', 'week_22');
+    require "bd_22.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS));
         $lastname = trim(filter_var($_POST['lastname'], FILTER_SANITIZE_SPECIAL_CHARS));
@@ -30,3 +30,4 @@
 
         echo json_encode(["status" => "success", "message" => "Регистрация успешна"]);
     }
+//    создать для бд файл
