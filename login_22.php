@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo json_encode(["status" => "success", "message" => "Привет, $login", "redirect" => "https://test/hello.php?name=" . urlencode($login)]);
+        echo json_encode(["status" => "success", "message" => "Привет, $login", "login" => $login]);
     } else {
         echo json_encode(["status" => "error", "message" => "Неверный логин или пароль"]);
     }
