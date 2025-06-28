@@ -11,6 +11,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $dates = [];
 
         while ($row = $result->fetch_assoc()) {
+
+
             $dates[] = [
                 "day" => (int)$row['day'],
                 "month" => (int)$row['month'],
@@ -18,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             ];
         }
 
-        echo json_encode($dates, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo json_encode(["dates" => $dates, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE]);
     } else {
         echo json_encode(["error" => "Год не указан"]);
     }
