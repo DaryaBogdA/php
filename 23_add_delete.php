@@ -3,10 +3,12 @@ header('Content-Type: application/json');
 
 require "db_23.php";
 
-$year  = isset($_GET['year'])  ? (int)$_GET['year']  : 0;
-$month = isset($_GET['month']) ? (int)$_GET['month'] : 0;
-$day   = isset($_GET['day'])   ? (int)$_GET['day']   : 0;
-
+$year  = (int)$_POST['year'];
+$month = (int)$_POST['month'];
+$day   = (int)$_POST['day'];
+if (!$year || !$month || !$day){
+    echo json_encode(["status" => "error"]);
+}
 $stmt = $mysqli->prepare("SELECT id FROM days WHERE year = ? AND month = ? AND day = ?");
 $stmt->bind_param("iii", $year, $month, $day);
 $stmt->execute();
